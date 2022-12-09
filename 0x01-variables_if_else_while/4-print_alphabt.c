@@ -9,7 +9,7 @@ int main(void)
 {
 	char c = 'a';
 
-	do {i
+	do {
 		if (c != 'q' &&  c != 'e')
 		{
 			putchar(c);
