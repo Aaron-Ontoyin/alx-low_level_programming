@@ -9,12 +9,12 @@ int main(void)
 {
 	char c = 'a';
 
-	do {
+	do {i
 		if (c != 'q' &&  c != 'e')
 		{
 			putchar(c);
-			c++;
 		}
+		c++;
 	} while (isalpha(c));
 	putchar('\n');
 	return (0);
