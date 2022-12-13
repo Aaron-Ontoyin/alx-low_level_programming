@@ -7,19 +7,13 @@
 int main(void)
 {
 	int sum = 0;
-	int cval3 = 3;
-	int cval5 = 5;
+	int i = 1;
 
-	while (cval3 < 1024)
+	while (i < 1024)
 	{
-		sum += cval3;
-		cval3 += 3;
-	}
-
-	while (cval5 < 1024)
-	{
-		sum += cval5;
-		cval5 += 5;
+		if ((i % 3 == 0) || (i % 5 == 0))
+		sum += i;
+		i++;
 	}
 
 	printf("%d\n", sum);
