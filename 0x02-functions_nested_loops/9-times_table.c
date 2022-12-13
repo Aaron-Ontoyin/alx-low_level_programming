@@ -32,7 +32,8 @@ void times_table(void)
 
 				_putchar((((a * b) - rmder) / 10) + '0');
 				_putchar(rmder + '0');
-			} else {
+			} else
+			{
 				_putchar(' ');
 				_putchar((a * b) + '0');
 			}
