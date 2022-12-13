@@ -93,7 +93,6 @@ void print_times_table(int n)
 				if (b < n)
 				{
 					_putchar(',');
-					_putchar(' ');
 				}
 			}
 			_putchar('\n');
