@@ -4,7 +4,7 @@
  * main - prints alphabet in lower case followed by new line
  * Return: 0 on success
  */
-int main(void)
+int print_alphabet(void)
 {
 	char c;
 
