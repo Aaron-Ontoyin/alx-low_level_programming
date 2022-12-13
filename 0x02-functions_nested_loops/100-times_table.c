@@ -24,7 +24,6 @@ void print_formatted_digits(int val)
 		_putchar(sdg3);
 	} else /* Then it's 2 digits */
 	{
-		_putchar(' ');
 		_putchar(fdg2);
 	}
 
@@ -56,6 +55,32 @@ void print_zeros(int n)
 }
 
 /**
+ * print_appropriate_space - Prints a a comma ans a number of space due
+ * to how many didits a number is
+ *@val: The used to determine number of spaces
+ */
+void print_appropriate_space(int val)
+{
+	_putchar(',');
+	if (val > 9)
+	{
+		_putchar(' ');
+
+		if (val <= 99)
+		{
+			_putchar(' ');
+		}
+
+	} else
+	{
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(' ');
+	}
+
+}
+
+/**
  * print_times_table - prints times table from 0 to n
  *@n: limit of times table
  */
@@ -67,14 +92,13 @@ void print_times_table(int n)
 		int b;
 
 		print_zeros(n);
-
 		for (a = 1; a <= n; a++)
 		{
 			_putchar('0');
 			_putchar(',');
 			_putchar(' ');
 			_putchar(' ');
-
+			_putchar(' ');
 			for (b = 1; b <= n; b++)
 			{
 				int val = a * b;
@@ -85,14 +109,11 @@ void print_times_table(int n)
 
 				} else
 				{
-					_putchar(' ');
-					_putchar(' ');
 					_putchar(val + '0');
 				}
-
 				if (b < n)
 				{
-					_putchar(',');
+					print_appropriate_space(val);
 				}
 			}
 			_putchar('\n');
