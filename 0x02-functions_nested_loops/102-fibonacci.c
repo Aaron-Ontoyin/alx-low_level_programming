@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	int i; 
+	int i;
 	long temp;
 	long p1 = 0;
 	long p2 = 1;
