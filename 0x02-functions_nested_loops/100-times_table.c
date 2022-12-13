@@ -55,18 +55,19 @@ void print_zeros(int n)
 }
 
 /**
- * print_appropriate_space - Prints a a comma ans a number of space due
- * to how many didits a number is
- *@val: The used to determine number of spaces
+ * print_appropriate_space - Prints a comma and a number of space
+ * due to what the length of the nex number would be
+ *@a: whiich  multiplicaation table are we in
+ *@b: Which position of a multiplication are we in
  */
-void print_appropriate_space(int val)
+void print_appropriate_space(int a, int b)
 {
 	_putchar(',');
-	if (val > 9)
+	if (a * ++b > 9)
 	{
 		_putchar(' ');
 
-		if (val <= 99)
+		if (!(a * b > 99))
 		{
 			_putchar(' ');
 		}
@@ -98,7 +99,9 @@ void print_times_table(int n)
 			_putchar(',');
 			_putchar(' ');
 			_putchar(' ');
-			_putchar(' ');
+			if (a < 10)
+				_putchar(' ');
+
 			for (b = 1; b <= n; b++)
 			{
 				int val = a * b;
@@ -113,7 +116,7 @@ void print_times_table(int n)
 				}
 				if (b < n)
 				{
-					print_appropriate_space(val);
+					print_appropriate_space(a, b);
 				}
 			}
 			_putchar('\n');
