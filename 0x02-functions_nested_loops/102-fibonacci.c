@@ -5,7 +5,7 @@
  * Return: 0 on success
  */
 int main(void)
-{;
+{
 	int i; 
 	long temp;
 	long p1 = 0;
