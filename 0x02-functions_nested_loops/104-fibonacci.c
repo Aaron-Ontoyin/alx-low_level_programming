@@ -1,45 +1,37 @@
 #include <stdio.h>
+#define MAX_NUM_LEN 10000000000
 
 /**
- * main - prints first 98 fibo numbers satrting with 1 and 2
- * Return: 0 on success
+ * main - prints first 98 fib seq starting from 1
+ *
+ * Return: 0
  */
 int main(void)
 {
-	int i;
-	long p1 = 0, p2 = 1, temp;
-	long p1_half1, p1_half2, p2_half1, p2_half2;
-	long half1, half2;
+	unsigned long int p1 = 0, bk1 = 1, p2 = 0, bk2 = 2;
+	unsigned long int temp1, temp2, temp3;
+	int count;
 
-	for (i = 0; i < 92; i++)
+	printf("%lu, %lu, ", bk1, bk2);
+	for (count = 2; count < 98; count++)
 	{
-		printf("%lu, ", p1 + p2);
-		temp = p1;
-		p1 = p2;
-		p2 += temp;
-	}
-
-	p1_half1 = p1 / 10000000000;
-	p2_half1 = p2 / 10000000000;
-	p1_half2 = p1 % 10000000000;
-	p2_half2 = p2 % 10000000000;
-	for (i = 92; i < 98; i++)
-	{
-		half1 = p1_half1 + p2_half1;
-		half2 = p1_half2 + p2_half2;
-		if (p1_half2 + p2_half2 > 9999999999)
+		if (bk1 + bk2 > MAX_NUM_LEN || p2 > 0 || p1 > 0)
 		{
-			half1 += 1;
-			half2 %= 10000000000;
+			temp1 = (bk1 + bk2) / MAX_NUM_LEN;
+			temp2 = (bk1 + bk2) % MAX_NUM_LEN;
+			temp3 = p1 + p2 + temp1;
+			p1 = p2, p2 = temp3;
+			bk1 = bk2, bk2 = temp2;
+			printf("%lu%010lu", p2, bk2);
 		}
-
-		printf("%lu%lu", half1, half2);
-		if (i < 97)
+		else
+		{
+			temp2 = bk1 + bk2;
+			bk1 = bk2, bk2 = temp2;
+			printf("%lu", bk2);
+		}
+		if (count != 97)
 			printf(", ");
-		p1_half1 = p2_half1;
-		p1_half2 = p2_half2;
-		p2_half1 = half1;
-		p2_half2 = half2;
 	}
 	printf("\n");
 	return (0);
