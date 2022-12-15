@@ -6,27 +6,20 @@
  */
 void print_number(int n)
 {
-	int ll = 10;
-	int num_dgits = 1;
+	int k = n;
 
 	if (n < 0)
 	{
-		_putchar('-');
 		n *= -1;
+		k = n;
+		_putchar('-');
 	}
 
-	while (n / ll > 0)
-	{
-		ll *= 10;
-		num_dgits++;
-	}
+	k /= 10;
 
-	if (num_dgits == 1)
-	{
-		_putchar(n + '0');
-	} else
-	{
-		print_number(n / 10);
-		_putchar((n % 10) + '0');
-	}
+	if (k != 0)
+		print_number(k);
+
+	_putchar(n % 10 + '0');
+
 }
