@@ -8,7 +8,7 @@
 int main(void)
 {
 	long num = 612852475143;
-	long sq= sqrt(num);
+	long sq = sqrt(num);
 	long iter = 1;
 	long lpf = 1; /* Note one is not prime */
 
