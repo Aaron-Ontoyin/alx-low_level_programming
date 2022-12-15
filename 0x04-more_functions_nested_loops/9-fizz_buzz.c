@@ -14,16 +14,21 @@ int main(void)
 	{
 		if ((cntr % 3 == 0) && (cntr % 5 == 0))
 		{
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 		} else if (cntr % 3 == 0)
 		{
-			printf("Fizz ");
+			printf("Fizz");
 		} else if (cntr % 5 == 0)
 		{
-			printf("Buzz ");
+			printf("Buzz");
 		} else
 		{
-			printf("%d ", cntr);
+			printf("%d", cntr);
+		}
+
+		if (cntr < 100)
+		{
+			printf(" ");
 		}
 	}
 	printf("\n");
