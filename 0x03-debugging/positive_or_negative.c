@@ -2,8 +2,8 @@
 #include "main.h"
 
 /**
- * positive_or_negatvie - number checker
- * Description: Checks if a number is positive, negative or zero
+ * positive_or_negative - number checker
+ * Description - Checks if a number is positive, negative or zero
  * @n: Number to be checked
  */
 void positive_or_negative(int n)
