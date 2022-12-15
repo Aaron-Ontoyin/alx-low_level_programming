@@ -8,17 +8,23 @@
 int main(void)
 {
 	long num = 612852475143;
-	long sq = sqrt(num);
-	long iter = 1;
-	long lpf = 1; /* Note one is not prime */
+	long lpf, low_fctr = 2;
 
-	while (iter <= sq)
+	while (num != 0)
 	{
-		if ((num % iter == 0) && (iter > lpf))
-			lpf = iter;
+		if (num % low_fctr != 0)
+		{
+			low_fctr++;
+		} else
+		{
+			lpf = num;
+			num = num / low_fctr;
 
-		iter++;
+			if (num == 1)
+				break;
+		}
 	}
+
 	printf("%lu\n", lpf);
 
 	return (0);
