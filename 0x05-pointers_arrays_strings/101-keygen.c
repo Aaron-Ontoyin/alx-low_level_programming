@@ -14,7 +14,7 @@ int main(void)
 
 	while (i <= 2646)
 	{
-		c = rand() % 128;
+		c = (rand() % 127) + 1;
 		write(1, &c, 1);
 		i += c;
 	}
