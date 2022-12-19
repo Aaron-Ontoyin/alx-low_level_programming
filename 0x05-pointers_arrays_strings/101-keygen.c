@@ -17,7 +17,7 @@ int main(void)
 	{
 		while (j < 10000)
 		{
-			c = rand() % 128;
+			c = (rand() % 90) + 37;
 			j  += c;
 			write(1, &c, 1);
 		}
