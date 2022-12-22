@@ -12,6 +12,9 @@ char *cap_string(char *s)
 	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!',
 		'?', '"', '(', ')', '{', '}'};
 
+	if (s[i] >= 'a' && s[i] <= 'z') /* make sure first char is cap */
+		s[i] = s[i] - 32;
+
 	while (s[i] != '\0')
 	{
 		k = i + 1;
