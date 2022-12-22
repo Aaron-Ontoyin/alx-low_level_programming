@@ -21,15 +21,15 @@ char *leet(char *s)
 	{
 		for (j = 0; ecdChars[j] != '\0'; j++)
 		{
-			if (s[i] == ecdChars[j])
+			if (s[i] == ecdChars[j] && j % 2 == 0)
 			{
-				if (j % 2 == 0)
-					s[i] = ecdVals[j / 2];
-				else
-					s[i] = ecdVals[(j - 1) / 2];
-
+				s[i] = ecdVals[j / 2];
 				break;
-			}
+			} else if (s[i] == ecdChars[j])
+			{
+				s[i] = ecdVals[(j - 1) / 2];
+				break;
+			};
 		}
 
 		i++;
