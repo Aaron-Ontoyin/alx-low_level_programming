@@ -19,12 +19,12 @@ char *cap_string(char *s)
 		for (j = 0; j < 13; j++)
 		{
 			if (s[i] == sep[j] && (s[k] >= 'a' && s[k] <= 'z'))
+			{
 				s[i + 1] = s[i + 1] - 32;
+				break;
+			}
 		}
 
-		if  (s[i] == '\t')
-			s[i] = ' ';
-	
 		i++;
 	}
 	return (s);
