@@ -3,7 +3,6 @@
 #include <ctype.h>
 #include <string.h>
 
-
 /**
  * cal_num_coins - calculates the num of coins given the total val
  * @v: total val of coins
