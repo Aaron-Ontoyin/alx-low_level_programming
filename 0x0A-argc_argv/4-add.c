@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 /**
  * main - adds args passed to it
@@ -10,31 +11,24 @@
  */
 int main(int argc, char *argv[])
 {
+	int i, j, length;
 	int sum = 0;
-	/*to avoid unused argc*/
-	if (argc)
+	char *ptr;
 
-	while (*(++argv))
+	for (i = 1; i < argc; i++)
 	{
-		if (**argv == '-')
+		ptr = argv[i];
+		length = strlen(ptr);
+
+		for (j = 0; j < length; j++)
 		{
-			if (isdigit(*(*argv + 1)))
-			{
-				sum -= atoi(*argv + 1);
-			}
-			else
+			if (isdigit(*(ptr + j)) == 0)
 			{
 				printf("Error\n");
 				return (1);
 			}
-		} else if (isdigit(**argv))
-		{
-			sum += atoi(*argv);
-		} else
-		{
-			printf("Error\n");
-			return (1);
 		}
+		sum += atoi(argv[i]);
 	}
 
 	printf("%d\n", sum);
