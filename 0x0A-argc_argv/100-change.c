@@ -13,28 +13,15 @@ int cal_num_coins(int v)
 {
 	int n = 0;
 
-	while (v != 0)
-	{
-		if (v % 10 == 9 || v % 10 == 7)
-			v -= 2;
-		else if (v % 25 == 0)
-			v -= 25;
-		else if (v % 10 == 0)
-			v -= 10;
-		else if (v % 5 == 0)
-			v -= 5;
-		else if (v % 2 == 0)
-		{
-			if (v % 10 == 6)
-				v -= 1;
-			else
-				v -= 2;
-		}
-		else
-			v -= 1;
-
-		n++;
-	}
+	n += v / 25;
+	v = v % 25;
+	n += v / 10;
+	v = v % 10;
+	n += v / 5;
+	v = v % 5;
+	n += v / 2;
+	v = v % 2;
+	n += v;
 
 	return (n);
 }
