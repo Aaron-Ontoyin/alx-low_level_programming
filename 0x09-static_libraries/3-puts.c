@@ -1,6 +1,4 @@
 #include "main.h"
-#include <unistd.h>
-
 
 /**
  * _puts - prints a string to stdout
@@ -8,5 +6,7 @@
  */
 void _puts(char *str)
 {
-
+	if (str) /*to avoid unused var*/
+	{
+	}
 }
