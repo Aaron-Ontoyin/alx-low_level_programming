@@ -13,11 +13,13 @@ char *_strdup(char *str)
 	int i;
 	char *new_adrr;
 
+	if (str == NULL)
+		return (NULL);
+
 	while (str[s] != '\0')
 		s++;
-
+	s++;
 	new_adrr = (char *) malloc(sizeof(char) * s);
-
 	if (new_adrr == NULL)
 		return (NULL);
 
