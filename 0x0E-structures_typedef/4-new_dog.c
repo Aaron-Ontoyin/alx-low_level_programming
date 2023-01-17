@@ -1,42 +1,74 @@
 #include "dog.h"
 #include <stdlib.h>
 
-
 /**
- * new_dog - creates a new dog
- * @name: dog's name
- * @age: dog's age
- * @owner: dog's owner
- * Return: pointer to new dog, NULL on failure
+ * _strlen - return the len of string *s
+ * @s: string.
+ * Return: len of string.
  */
-dog_t *new_dog(char *name, float age, char *owner)
+unsigned int _strlen(char *s)
 {
+	unsigned int len = 0;
 
-	dog_t *d;
-
-	d = malloc(sizeof(dog_t));
-
-	if (d == NULL)
-		return (NULL);
-
-	if (name == NULL)
-	{
-		free(d);
-		free(owner);
-		return (NULL);
-	}
-
-	if (owner == NULL)
-	{
-		free(d);
-		free(name);
-		return (NULL);
-	}
-
-	d->name = name;
-	d->age = age;
-	d->owner = owner;
-
-	return (d);
+	while (*(s + len))
+		len++;
+	return (len);
 }
 
+/**
+ * _strcpy - copy string
+ * @s: string to copy
+ * @len: len of string to copy
+ * Return: copy string.
+ */
+char *_strcpy(char *s, int len)
+{
+	char *new_s;
+	int i = 0;
+
+	new_s = malloc(sizeof(char) * (len + 1));
+	if (!new_s)
+		return (NULL);
+	while (s[i])
+	{
+		new_s[i] = s[i];
+		i++;
+	}
+	new_s[i] = s[i];
+	return (new_s);
+}
+
+/**
+  * new_dog - creates a new dog.
+  *
+  * @name: namei of dog.
+  * @age: age of dog.
+  * @owner: owner of dog.
+  * Return: Pointer to new dog
+  */
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t *d;
+	char *cpy_name, *cpy_owner;
+
+	d = malloc(sizeof(dog_t));
+	if (!d)
+		return (NULL);
+	/* Copy strings */
+	cpy_name = _strcpy(name, _strlen(name));
+	cpy_owner = _strcpy(owner, _strlen(owner));
+	/* If fail someone free and return NULL */
+	if (!cpy_name || !cpy_owner)
+	{	free(d);
+		if (cpy_name)
+			free(cpy_name);
+		if (cpy_owner)
+			free(cpy_owner);
+		return (NULL);
+	}
+	/* Otherwise assing name and owner */
+	d->name = cpy_name;
+	d->age = age;
+	d->owner = cpy_owner;
+	return (d);
+}
