@@ -7,4 +7,4 @@ def isPali(str):
 
 for i in range(999*999, -1, -1):
     if isPali(str(i)):
-        print("Found: {:d}".format(i))
+        print(i)
