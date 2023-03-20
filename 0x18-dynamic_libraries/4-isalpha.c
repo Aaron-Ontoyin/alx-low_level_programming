@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
 * _isalpha - returns 1 or 0
 * depending on if the character is capitalized or not.
